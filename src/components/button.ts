@@ -1,19 +1,14 @@
+import Component from '../component';
 import styles from './button.module.scss';
 
-class Button {
-  public $element = document.createElement('button');
-  public onClick: any;
+class Button extends Component {
+  public element = document.createElement('button');
 
-  constructor(onClick) {
-    this.$element.textContent = 'cast';
-    this.$element.className = styles.button;
-
-    this.onClick = onClick;
-  }
-
-  element() {
-    this.$element.onclick = this.onClick;
-    return this.$element;
+  constructor(tagName, props) {
+    super(tagName, props);
+    this.element.onclick = props.onClick;
+    this.element.textContent = 'cast';
+    this.element.className = styles.button;
   }
 }
 

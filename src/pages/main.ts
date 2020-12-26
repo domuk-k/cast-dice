@@ -1,24 +1,31 @@
+import Component from '../component';
 import Button from '../components/button';
+import Logger from '../components/logger';
 import styles from './main.module.scss';
 
-class Main {
-  public $element = document.createElement('main');
-  public $descriptors = document.createElement('section');
-  public $button: HTMLElement;
+class Main extends Component {
+  private button: HTMLButtonElement;
+  private logger: HTMLElement;
 
-  element() {
-    // this.$element.className = styles.main;
-    return this.$element;
+  constructor(tagName, props?) {
+    super(tagName);
+
+    this.button = new Button('button', {
+      onClick: props.onClick,
+    }).element;
+
+    this.logger = new Logger('ul', {
+      id: 'desc',
+      log: props.state.log,
+    }).element;
+
+    this.createElement(this.button, this.divider, this.logger);
   }
 
-  private get children() {
-    return [this.$button, this.$descriptors];
-  }
-
-  constructor(onClick) {
-    this.$button = new Button(onClick).element();
-    // this.$element.className = styles.main;
-    this.$element.append(...this.children);
+  get divider() {
+    const $divider = document.createElement('hr');
+    $divider.className = styles.divider;
+    return $divider;
   }
 }
 

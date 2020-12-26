@@ -1,27 +1,26 @@
+import Component from '../component';
 import styles from './header.module.scss';
 
-class Header {
-  public $header = document.createElement('header');
-  public $h1 = document.createElement('h1');
-  public $h2 = document.createElement('h2');
-
-  element() {
-    this.$header.className = styles.header;
-    return this.$header;
+class Header extends Component {
+  constructor(tagName) {
+    super(tagName);
+    this.createElement(this.h1, this.h2);
   }
 
-  private get children() {
+  private $h1: HTMLHeadingElement;
+  private get h1() {
+    this.$h1 = document.createElement('h1');
     this.$h1.textContent = 'the die is cast';
     this.$h1.className = styles.heading1;
-
-    this.$h2.textContent = 'Alea iacta est';
-    this.$h2.className = styles.heading2;
-
-    return [this.$h1, this.$h2];
+    return this.$h1;
   }
 
-  constructor() {
-    this.$header.append(...this.children);
+  private $h2: HTMLHeadingElement;
+  private get h2() {
+    this.$h2 = document.createElement('h2');
+    this.$h2.textContent = 'Alea iacta est';
+    this.$h2.className = styles.heading2;
+    return this.$h2;
   }
 }
 
