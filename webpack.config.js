@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     filename: '[name].[chunkhash].js', //hash contenthash chunkhash
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -90,6 +90,6 @@ module.exports = {
     },
     compress: true,
     port: 9000,
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'build'),
   },
 };
