@@ -1,5 +1,5 @@
 import Main from './pages/main';
-import Header from './pages/header';
+import Header from './components/header';
 import style from './app.module.scss';
 import Component from './component';
 import Log from './components/log';

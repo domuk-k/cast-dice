@@ -1,6 +1,6 @@
 import App from './app';
 import './index.module.scss';
-import Header from './pages/header';
+import Header from './components/header';
 import Main from './pages/main';
 
 const root = document.getElementById('root');
